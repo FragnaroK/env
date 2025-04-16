@@ -1,0 +1,24 @@
+{
+  "name": "env",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -fr ./dist && tsc && pnpm run build:types",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:types": "tsc --emitDeclarationOnly"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.7.0",
+  "dependencies": {
+    "typescript": "^5.8.3",
+    "zod": "^3.24.2",
+    "zod-empty": "^1.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0"
+  }
+}
