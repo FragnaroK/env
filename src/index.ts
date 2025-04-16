@@ -60,7 +60,7 @@ function getEnv<T = string>(
 export type ZodEnvObject = Partial<{ [keys in keyof NodeJS.ProcessEnv]: z.ZodType }>;
 export type EnvObject = { [keys in keyof NodeJS.ProcessEnv]: string | number | boolean | undefined };
 
-function collectEnv<Return>(schemaObject: ZodEnvObject, fallback?: Partial<EnvObject>): Return {
+function collectEnv<Return = NodeJS.ProcessEnv>(schemaObject: ZodEnvObject, fallback?: Partial<EnvObject>): Return {
 	const schema = z.object(schemaObject as ZodRawShape);
     const env: EnvObject = {} as EnvObject;
     const defaults = init(schema);
