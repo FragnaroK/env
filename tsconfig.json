@@ -30,6 +30,6 @@
 		"resolveJsonModule": true,
 		"skipLibCheck": true
 	},
-	"include": ["./src/**/*.ts", "*.d.ts"],
+	"include": ["./src/**/*.ts", "./src/**/*.js", "./types/**/*.d.ts"],
 	"exclude": ["node_modules", "**/*.spec.ts"]
 }
