@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z, ZodRawShape } from "zod";
 import { init } from "zod-empty";
 
 function getEnv<T>(
@@ -57,11 +57,11 @@ function getEnv<T = string>(
 	}
 }
 
-export type ZodEnvObject = { [keys in Partial<keyof NodeJS.ProcessEnv>]: z.ZodType };
-export type EnvObject = { [keys in Partial<keyof NodeJS.ProcessEnv>]: string | number | boolean | undefined };
+export type ZodEnvObject = Partial<{ [keys in keyof NodeJS.ProcessEnv]: z.ZodType }>;
+export type EnvObject = { [keys in keyof NodeJS.ProcessEnv]: string | number | boolean | undefined };
 
 function collectEnv(schemaObject: ZodEnvObject, fallback?: Partial<EnvObject>): EnvObject {
-    const schema = z.object(schemaObject);
+	const schema = z.object(schemaObject as ZodRawShape);
     const env: EnvObject = {} as EnvObject;
     const defaults = init(schema);
 
@@ -94,5 +94,6 @@ const env = {
 	get: getEnv,
     collect: collectEnv,
 };
+
 
 export default env;
