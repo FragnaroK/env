@@ -57,8 +57,8 @@ function getEnv<T = string>(
 	}
 }
 
-export type ZodEnvObject = { [keys in keyof NodeJS.ProcessEnv]: z.ZodType };
-export type EnvObject = Record<keyof NodeJS.ProcessEnv, string | boolean | number>
+export type ZodEnvObject = { [keys in Partial<keyof NodeJS.ProcessEnv>]: z.ZodType };
+export type EnvObject = { [keys in Partial<keyof NodeJS.ProcessEnv>]: string | number | boolean | undefined };
 
 function collectEnv(schemaObject: ZodEnvObject, fallback?: Partial<EnvObject>): EnvObject {
     const schema = z.object(schemaObject);
