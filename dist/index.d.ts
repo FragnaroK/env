@@ -17,7 +17,7 @@ export type ZodEnvObject = Partial<{
 export type EnvObject = {
     [keys in keyof NodeJS.ProcessEnv]: string | number | boolean | undefined;
 };
-declare function collectEnv(schemaObject: ZodEnvObject, fallback?: Partial<EnvObject>): EnvObject;
+declare function collectEnv<Return>(schemaObject: ZodEnvObject, fallback?: Partial<EnvObject>): Return;
 declare const env: {
     get: typeof getEnv;
     collect: typeof collectEnv;
