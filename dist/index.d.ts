@@ -11,7 +11,9 @@ declare function getEnv<T>(name: keyof NodeJS.ProcessEnv, schema: z.ZodType<T>, 
     fallback?: T;
     required?: boolean;
 }): T | undefined;
-export type ZodEnvObject = Record<keyof NodeJS.ProcessEnv, z.ZodType>;
+export type ZodEnvObject = {
+    [keys in keyof NodeJS.ProcessEnv]: z.ZodType;
+};
 export type EnvObject = Record<keyof NodeJS.ProcessEnv, string | boolean | number>;
 declare function collectEnv(schemaObject: ZodEnvObject, fallback?: Partial<EnvObject>): EnvObject;
 declare const env: {
