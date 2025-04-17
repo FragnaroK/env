@@ -9,6 +9,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:types": "tsc --emitDeclarationOnly"
   },
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "keywords": [],
   "author": "fragnarok",
