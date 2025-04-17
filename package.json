@@ -11,7 +11,7 @@
   },
   "type": "module",
   "keywords": [],
-  "author": "",
+  "author": "fragnarok",
   "license": "ISC",
   "packageManager": "pnpm@10.7.0",
   "dependencies": {
